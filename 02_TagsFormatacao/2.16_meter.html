@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag METER - Medidor</title>
+</head>
+<body>
+    <!-- 
+    TAG METER: Medidor/Gauge
+    
+    O que faz:
+    - Exibe uma medida escalar em um intervalo conhecido
+    - Representa valores como pontuações, porcentagens, níveis
+    - Não deve ser usada para barras de progresso (use <progress>)
+    - Mostra valores dentro de um intervalo definido
+    
+    Características:
+    - Elemento inline
+    - Exibe uma barra horizontal preenchida
+    - Atributos para definir valores e intervalos
+    
+    Atributos:
+    - value: valor atual (obrigatório)
+    - min: valor mínimo (padrão: 0)
+    - max: valor máximo (padrão: 1)
+    - low: limite inferior da faixa baixa
+    - high: limite superior da faixa alta
+    - optimum: valor ideal/ótimo
+    -->
+    
+    <h1>Exemplos da Tag METER</h1>
+    
+    <h2>Uso Básico</h2>
+    <p>Nota da prova: <meter value="8" min="0" max="10">8 de 10</meter></p>
+    <p>Satisfação do cliente: <meter value="4.5" max="5">4.5 de 5</meter></p>
+    
+    <h2>Com Faixas Otimizadas</h2>
+    <p>Uso de CPU: <meter value="75" min="0" max="100" low="25" high="80" optimum="50">75%</meter></p>
+    <p>Bateria: <meter value="30" min="0" max="100" low="20" high="80" optimum="100">30%</meter></p>
+    
+    <h2>Avaliações</h2>
+    <p>Qualidade do produto: <meter value="4.2" min="1" max="5">4.2 estrelas</meter></p>
+    <p>Velocidade de entrega: <meter value="3.8" min="1" max="5">3.8 estrelas</meter></p>
+    
+    <h2>Níveis de Armazenamento</h2>
+    <p>Espaço em disco: <meter value="650" min="0" max="1000" low="800" high="900">650 GB de 1TB</meter></p>
+    <p>Memória RAM: <meter value="12" min="0" max="16" high="14">12 GB de 16 GB</meter></p>
+    
+    <h2>Pontuações</h2>
+    <p>Score do jogo: <meter value="8500" min="0" max="10000">8.500 pontos</meter></p>
+    <p>Nível de experiência: <meter value="7" min="1" max="10">Nível 7</meter></p>
+    
+</body>
+</html>
