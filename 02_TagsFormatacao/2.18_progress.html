@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag PROGRESS - Barra de Progresso</title>
+</head>
+<body>
+    <!-- 
+    TAG PROGRESS: Barra de progresso
+    
+    O que faz:
+    - Mostra o progresso de uma tarefa em andamento
+    - Exibe uma barra visual de completude
+    - Diferente de <meter> que é para valores estáticos
+    - Ideal para downloads, uploads, formulários
+    
+    Características:
+    - Elemento inline
+    - Barra visual de progresso
+    - Pode ser indeterminada (sem valor) ou determinada (com valor)
+    
+    Atributos:
+    - value: progresso atual (0 a max)
+    - max: valor máximo (padrão: 1)
+    - Sem value = progresso indeterminado
+    
+    Quando usar:
+    - Downloads/uploads
+    - Carregamento de páginas
+    - Preenchimento de formulários
+    - Processamento de dados
+    -->
+    
+    <h1>Exemplos da Tag PROGRESS</h1>
+    
+    <h2>Progresso Básico</h2>
+    <p>Download: <progress value="65" max="100">65%</progress> 65%</p>
+    <p>Carregando: <progress value="0.7">70%</progress></p>
+    
+    <h2>Progresso Indeterminado</h2>
+    <p>Processando dados: <progress>Carregando...</progress></p>
+    <p>Conectando ao servidor: <progress></progress></p>
+    
+    <h2>Diferentes Escalas</h2>
+    <p>Upload de arquivo: <progress value="240" max="500">240 MB de 500 MB</progress></p>
+    <p>Instalação: <progress value="8" max="10">Etapa 8 de 10</progress></p>
+    
+    <h2>Com Labels Descritivos</h2>
+    <p>
+        <label for="file-progress">Enviando arquivo:</label><br>
+        <progress id="file-progress" value="45" max="100">45%</progress>
+        <span>45% concluído</span>
+    </p>
+    
+    <h2>Formulário de Cadastro</h2>
+    <p>
+        Progresso do cadastro: 
+        <progress value="3" max="5">Etapa 3 de 5</progress>
+        (3 de 5 etapas concluídas)
+    </p>
+    
+    <h2>Com JavaScript (Exemplo)</h2>
+    <p>
+        Carregamento dinâmico: 
+        <progress id="dynamic-progress" value="0" max="100">0%</progress>
+        <button onclick="updateProgress()">Simular Progresso</button>
+    </p>
+    
+    <script>
+        function updateProgress() {
+            const progress = document.getElementById('dynamic-progress');
+            let value = 0;
+            const interval = setInterval(() => {
+                value += 10;
+                progress.value = value;
+                if (value >= 100) {
+                    clearInterval(interval);
+                }
+            }, 200);
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag RP - Ruby Parentheses</title>
+</head>
+<body>
+    <!-- 
+    TAG RP: Ruby Parentheses (Parênteses Ruby)
+    
+    O que faz:
+    - Fornece fallback para navegadores sem suporte a ruby
+    - Exibe parênteses quando anotações ruby não são suportadas
+    - Usada junto com <ruby> e <rt>
+    - Importante para idiomas como japonês e chinês
+    
+    Características:
+    - Elemento inline
+    - Invisível em navegadores que suportam ruby
+    - Visível apenas como fallback
+    - Usada em pares (abertura e fechamento)
+    
+    Como funciona:
+    - Navegador com suporte ruby: <rp> é ignorada
+    - Navegador sem suporte ruby: <rp> é exibida
+    
+    Estrutura típica:
+    <ruby>
+        texto_base
+        <rp>(</rp><rt>anotação</rt><rp>)</rp>
+    </ruby>
+    -->
+    
+    <h1>Exemplos da Tag RP</h1>
+    
+    <h2>Japonês com Furigana</h2>
+    <p>
+        <ruby>
+            漢字
+            <rp>(</rp><rt>かんじ</rt><rp>)</rp>
+        </ruby>
+        é a escrita japonesa usando caracteres chineses.
+    </p>
+    
+    <p>
+        Eu estudo 
+        <ruby>
+            日本語
+            <rp>(</rp><rt>にほんご</rt><rp>)</rp>
+        </ruby>
+        todos os dias.
+    </p>
+    
+    <h2>Chinês com Pinyin</h2>
+    <p>
+        <ruby>
+            中文
+            <rp>(</rp><rt>zhōngwén</rt><rp>)</rp>
+        </ruby>
+        significa "idioma chinês".
+    </p>
+    
+    <p>
+        <ruby>
+            你好
+            <rp>(</rp><rt>nǐ hǎo</rt><rp>)</rp>
+        </ruby>
+        significa "olá" em chinês.
+    </p>
+    
+    <h2>Múltiplas Anotações</h2>
+    <p>
+        <ruby>
+            東京
+            <rp>(</rp><rt>とうきょう</rt><rp>)</rp>
+        </ruby>
+        は
+        <ruby>
+            日本
+            <rp>(</rp><rt>にほん</rt><rp>)</rp>
+        </ruby>
+        の
+        <ruby>
+            首都
+            <rp>(</rp><rt>しゅと</rt><rp>)</rp>
+        </ruby>
+        です。
+    </p>
+    
+    <h2>Como Funciona o Fallback</h2>
+    <p><strong>Com suporte ruby:</strong> 漢字 aparece com anotação acima</p>
+    <p><strong>Sem suporte ruby:</strong> 漢字(かんじ) aparece com parênteses</p>
+    
+</body>
+</html>
