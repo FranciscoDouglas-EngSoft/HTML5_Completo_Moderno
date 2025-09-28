@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags COL e COLGROUP - Colunas</title>
+    <style>
+        .destaque { background-color: #f0f0f0; }
+        .importante { background-color: #ffeb3b; }
+    </style>
+</head>
+<body>
+    <!-- 
+    TAGS DE COLUNA:
+    COLGROUP: Column Group (Grupo de colunas)
+    COL: Column (Coluna)
+    
+    O que fazem:
+    - Definem propriedades para colunas inteiras
+    - Permitem estilização de colunas
+    - Devem aparecer antes de thead/tbody
+    - Melhoram performance de renderização
+    -->
+    
+    <h1>Exemplos das Tags COL e COLGROUP</h1>
+    
+    <table border="1">
+        <caption>Notas dos Alunos</caption>
+        
+        <colgroup>
+            <col>
+            <col class="destaque">
+            <col span="3" class="importante">
+        </colgroup>
+        
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Turma</th>
+                <th>Matemática</th>
+                <th>Português</th>
+                <th>Ciências</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>João Silva</td>
+                <td>A</td>
+                <td>8.5</td>
+                <td>9.0</td>
+                <td>7.5</td>
+            </tr>
+            <tr>
+                <td>Maria Santos</td>
+                <td>B</td>
+                <td>9.5</td>
+                <td>8.0</td>
+                <td>9.0</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Múltiplos Grupos</h2>
+    <table border="1">
+        <colgroup>
+            <col span="2" style="background-color: #e3f2fd;">
+        </colgroup>
+        <colgroup>
+            <col span="2" style="background-color: #f3e5f5;">
+        </colgroup>
+        
+        <tr>
+            <th>Q1</th>
+            <th>Q2</th>
+            <th>Q3</th>
+            <th>Q4</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>120</td>
+            <td>110</td>
+            <td>130</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

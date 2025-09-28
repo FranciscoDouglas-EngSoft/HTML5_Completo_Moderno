@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Completa - Todas as Tags</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        thead th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tfoot th {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+        .col-produto { background-color: #f9f9f9; }
+        .col-valores { background-color: #fff3e0; }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Vendas Completo</h1>
+    
+    <table>
+        <caption>
+            <strong>Relatório de Vendas por Produto - 2024</strong><br>
+            <small>Valores em reais (R$)</small>
+        </caption>
+        
+        <!-- Definição de colunas -->
+        <colgroup>
+            <col class="col-produto">
+            <col span="4" class="col-valores">
+        </colgroup>
+        
+        <!-- Cabeçalho -->
+        <thead>
+            <tr>
+                <th rowspan="2">Produto</th>
+                <th colspan="3">Trimestres</th>
+                <th rowspan="2">Total Anual</th>
+            </tr>
+            <tr>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+            </tr>
+        </thead>
+        
+        <!-- Corpo da tabela -->
+        <tbody>
+            <tr>
+                <td>Notebooks</td>
+                <td>R$ 45.000</td>
+                <td>R$ 52.000</td>
+                <td>R$ 48.000</td>
+                <td>R$ 145.000</td>
+            </tr>
+            <tr>
+                <td>Smartphones</td>
+                <td>R$ 35.000</td>
+                <td>R$ 42.000</td>
+                <td>R$ 38.000</td>
+                <td>R$ 115.000</td>
+            </tr>
+            <tr>
+                <td>Tablets</td>
+                <td>R$ 20.000</td>
+                <td>R$ 25.000</td>
+                <td>R$ 22.000</td>
+                <td>R$ 67.000</td>
+            </tr>
+        </tbody>
+        
+        <!-- Rodapé -->
+        <tfoot>
+            <tr>
+                <th>TOTAL GERAL</th>
+                <th>R$ 100.000</th>
+                <th>R$ 119.000</th>
+                <th>R$ 108.000</th>
+                <th>R$ 327.000</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+</body>
+</html>

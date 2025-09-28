@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags TH, TR, TD - Estrutura da Tabela</title>
+</head>
+<body>
+    <!-- 
+    TAGS ESTRUTURAIS:
+    TH: Table Header (Cabeçalho)
+    TR: Table Row (Linha)
+    TD: Table Data (Dado/Célula)
+    
+    O que fazem:
+    - TH: célula de cabeçalho (negrito, centralizado)
+    - TR: linha da tabela
+    - TD: célula comum de dados
+    -->
+    
+    <h1>Exemplos das Tags TH, TR, TD</h1>
+    
+    <table border="1">
+        <caption>Relatório de Funcionários</caption>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Departamento</th>
+            <th>Salário</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>Ana Silva</td>
+            <td>TI</td>
+            <td>R$ 5.000</td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>Carlos Santos</td>
+            <td>Marketing</td>
+            <td>R$ 4.500</td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>Lucia Oliveira</td>
+            <td>RH</td>
+            <td>R$ 4.800</td>
+        </tr>
+    </table>
+    
+    <h2>Com Atributos</h2>
+    <table border="1">
+        <tr>
+            <th rowspan="2">Produto</th>
+            <th colspan="2">Vendas</th>
+        </tr>
+        <tr>
+            <th>Janeiro</th>
+            <th>Fevereiro</th>
+        </tr>
+        <tr>
+            <td>Notebook</td>
+            <td>100</td>
+            <td>120</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
