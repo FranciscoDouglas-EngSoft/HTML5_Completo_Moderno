@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag DATALIST - Lista de Sugestões</title>
+</head>
+<body>
+    <!-- 
+    TAG DATALIST: Lista de sugestões
+    
+    O que faz:
+    - Fornece sugestões para campos input
+    - Combo de input text + select
+    - Usuário pode digitar ou escolher da lista
+    - Filtragem automática conforme digitação
+    -->
+    
+    <h1>Exemplos da Tag DATALIST</h1>
+    
+    <form>
+        <h2>Navegadores</h2>
+        <label for="navegador">Escolha seu navegador:</label>
+        <input list="navegadores" id="navegador" name="navegador" 
+               placeholder="Digite ou escolha...">
+        
+        <datalist id="navegadores">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Edge">
+            <option value="Opera">
+        </datalist>
+        
+        <h2>Cidades Brasileiras</h2>
+        <label for="cidade-origem">Cidade de origem:</label>
+        <input list="cidades-br" id="cidade-origem" name="origem">
+        
+        <datalist id="cidades-br">
+            <option value="São Paulo - SP" label="SP">
+            <option value="Rio de Janeiro - RJ" label="RJ">
+            <option value="Belo Horizonte - MG" label="BH">
+            <option value="Porto Alegre - RS" label="POA">
+            <option value="Salvador - BA" label="SSA">
+            <option value="Fortaleza - CE" label="FOR">
+            <option value="Brasília - DF" label="BSB">
+            <option value="Curitiba - PR" label="CWB">
+            <option value="Recife - PE" label="REC">
+            <option value="Manaus - AM" label="MAO">
+        </datalist>
+        
+        <h2>Linguagens de Programação</h2>
+        <label for="linguagem-prog">Linguagem principal:</label>
+        <input list="linguagens" id="linguagem-prog" name="linguagem">
+        
+        <datalist id="linguagens">
+            <option value="JavaScript" label="JS - Para web frontend/backend">
+            <option value="Python" label="PY - Para ciência de dados/backend">
+            <option value="Java" label="JAVA - Para aplicações enterprise">
+            <option value="C#" label="C# - Para aplicações Microsoft">
+            <option value="PHP" label="PHP - Para desenvolvimento web">
+            <option value="Go" label="GO - Para aplicações de alta performance">
+            <option value="Rust" label="RUST - Para programação de sistemas">
+            <option value="TypeScript" label="TS - JavaScript com tipos">
+        </datalist>
+        
+        <h2>Cores</h2>
+        <label for="cor-favorita">Cor favorita:</label>
+        <input list="cores" id="cor-favorita" name="cor" type="color">
+        
+        <datalist id="cores">
+            <option value="#ff0000" label="Vermelho">
+            <option value="#00ff00" label="Verde">
+            <option value="#0000ff" label="Azul">
+            <option value="#ffff00" label="Amarelo">
+            <option value="#ff00ff" label="Magenta">
+            <option value="#00ffff" label="Ciano">
+        </datalist>
+        
+        <button type="submit">Enviar</button>
+    </form>
+    
+</body>
+</html>

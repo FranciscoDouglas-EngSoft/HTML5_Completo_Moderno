@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag INPUT - Campo de Entrada</title>
+</head>
+<body>
+    <!-- 
+    TAG INPUT: Campo de entrada
+    
+    O que faz:
+    - Cria diversos tipos de campos de entrada
+    - Elemento vazio (self-closing)
+    - Tipos específicos para diferentes dados
+    
+    Tipos principais:
+    - text, password, email, tel, url
+    - number, range, date, time, datetime-local
+    - checkbox, radio, file, hidden
+    - submit, reset, button
+    -->
+    
+    <h1>Exemplos da Tag INPUT</h1>
+    
+    <form>
+        <h2>Campos de Texto</h2>
+        <label for="texto">Texto simples:</label>
+        <input type="text" id="texto" name="texto" placeholder="Digite aqui...">
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Senha segura">
+        
+        <label for="email-input">Email:</label>
+        <input type="email" id="email-input" name="email" placeholder="seu@email.com">
+        
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+        
+        <label for="site">Website:</label>
+        <input type="url" id="site" name="site" placeholder="https://exemplo.com">
+        
+        <h2>Campos Numéricos</h2>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" min="0" max="120" step="1">
+        
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco" min="0" step="0.01" placeholder="0.00">
+        
+        <label for="volume">Volume:</label>
+        <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+        
+        <h2>Campos de Data/Hora</h2>
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data">
+        
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora">
+        
+        <label for="dataehora">Data e Hora:</label>
+        <input type="datetime-local" id="dataehora" name="dataehora">
+        
+        <label for="mes">Mês:</label>
+        <input type="month" id="mes" name="mes">
+        
+        <label for="semana">Semana:</label>
+        <input type="week" id="semana" name="semana">
+        
+        <h2>Campos de Seleção</h2>
+        <label for="cor">Cor:</label>
+        <input type="color" id="cor" name="cor" value="#ff0000">
+        
+        <label for="arquivo-input">Arquivo:</label>
+        <input type="file" id="arquivo-input" name="arquivo" multiple accept="image/*">
+        
+        <h2>Checkboxes e Radio</h2>
+        <fieldset>
+            <legend>Interesses:</legend>
+            <input type="checkbox" id="tech" name="interesses" value="tecnologia">
+            <label for="tech">Tecnologia</label>
+            
+            <input type="checkbox" id="music" name="interesses" value="musica">
+            <label for="music">Música</label>
+            
+            <input type="checkbox" id="sports" name="interesses" value="esportes">
+            <label for="sports">Esportes</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Gênero:</legend>
+            <input type="radio" id="masc" name="genero" value="masculino">
+            <label for="masc">Masculino</label>
+            
+            <input type="radio" id="fem" name="genero" value="feminino">
+            <label for="fem">Feminino</label>
+            
+            <input type="radio" id="outros" name="genero" value="outros">
+            <label for="outros">Outros</label>
+        </fieldset>
+        
+        <h2>Botões</h2>
+        <input type="submit" value="Enviar Formulário">
+        <input type="reset" value="Limpar Campos">
+        <input type="button" value="Botão Personalizado" onclick="alert('Clicado!')">
+        
+        <input type="hidden" name="token" value="abc123">
+    </form>
+    
+</body>
+</html>

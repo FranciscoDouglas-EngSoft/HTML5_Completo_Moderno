@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag TEXTAREA - Área de Texto</title>
+</head>
+<body>
+    <!-- 
+    TAG TEXTAREA: Área de texto multilinha
+    
+    O que faz:
+    - Campo de texto com múltiplas linhas
+    - Redimensionável pelo usuário
+    - Suporta quebras de linha
+    
+    Atributos principais:
+    - rows: número de linhas visíveis
+    - cols: número de colunas (caracteres por linha)
+    - placeholder: texto de exemplo
+    - maxlength: limite de caracteres
+    - wrap: como quebrar linhas
+    -->
+    
+    <h1>Exemplos da Tag TEXTAREA</h1>
+    
+    <form>
+        <h2>Comentários Simples</h2>
+        <label for="comentario">Deixe seu comentário:</label>
+        <textarea id="comentario" name="comentario" rows="4" cols="50" 
+                  placeholder="Digite seu comentário aqui..."></textarea>
+        
+        <h2>Mensagem com Limite</h2>
+        <label for="mensagem">Mensagem (máx. 500 caracteres):</label>
+        <textarea id="mensagem" name="mensagem" rows="6" cols="60" 
+                  maxlength="500" placeholder="Digite sua mensagem..."></textarea>
+        
+        <h2>Descrição Detalhada</h2>
+        <label for="descricao">Descrição do produto:</label>
+        <textarea id="descricao" name="descricao" rows="8" cols="70" 
+                  required wrap="soft"></textarea>
+        
+        <h2>Área Redimensionável</h2>
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes" 
+                  style="resize: both; min-height: 100px; width: 100%;">
+Texto inicial...
+Pode conter múltiplas linhas
+E formatação preservada.
+        </textarea>
+        
+        <button type="submit">Enviar</button>
+    </form>
+    
+</body>
+</html>

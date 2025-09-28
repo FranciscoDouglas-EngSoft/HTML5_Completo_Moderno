@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags LABEL, FIELDSET, LEGEND</title>
+    <style>
+        fieldset {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    TAGS DE ESTRUTURA:
+    LABEL: Rótulo para controles
+    FIELDSET: Agrupa controles relacionados
+    LEGEND: Título do grupo (fieldset)
+    
+    O que fazem:
+    - Melhoram acessibilidade
+    - Organizam formulários logicamente
+    - Facilitam navegação por teclado
+    -->
+    
+    <h1>Exemplos das Tags LABEL, FIELDSET, LEGEND</h1>
+    
+    <form>
+        <fieldset>
+            <legend>Informações Pessoais</legend>
+            
+            <label for="nome-completo">Nome Completo:</label>
+            <input type="text" id="nome-completo" name="nome" required>
+            
+            <label for="data-nascimento">Data de Nascimento:</label>
+            <input type="date" id="data-nascimento" name="nascimento">
+            
+            <label for="genero-select">Gênero:</label>
+            <select id="genero-select" name="genero">
+                <option value="">Prefiro não informar</option>
+                <option value="m">Masculino</option>
+                <option value="f">Feminino</option>
+                <option value="nb">Não-binário</option>
+            </select>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Contato</legend>
+            
+            <label for="email-contato">Email:</label>
+            <input type="email" id="email-contato" name="email" required>
+            
+            <label for="telefone-contato">Telefone:</label>
+            <input type="tel" id="telefone-contato" name="telefone">
+            
+            <label for="endereco">Endereço:</label>
+            <textarea id="endereco" name="endereco" rows="3"></textarea>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Preferências de Contato</legend>
+            
+            <!-- Labels clicáveis com radio buttons -->
+            <label>
+                <input type="radio" name="contato-pref" value="email">
+                Por email
+            </label>
+            
+            <label>
+                <input type="radio" name="contato-pref" value="telefone">
+                Por telefone
+            </label>
+            
+            <label>
+                <input type="radio" name="contato-pref" value="sms">
+                Por SMS
+            </label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Interesses (múltipla escolha)</legend>
+            
+            <label>
+                <input type="checkbox" name="interesses" value="tecnologia">
+                Tecnologia
+            </label>
+            
+            <label>
+                <input type="checkbox" name="interesses" value="esportes">
+                Esportes
+            </label>
+            
+            <label>
+                <input type="checkbox" name="interesses" value="arte">
+                Arte e Cultura
+            </label>
+            
+            <label>
+                <input type="checkbox" name="interesses" value="viagem">
+                Viagens
+            </label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Configurações da Conta</legend>
+            
+            <label for="senha-nova">Nova Senha:</label>
+            <input type="password" id="senha-nova" name="senha" minlength="8">
+            
+            <label for="confirma-senha">Confirmar Senha:</label>
+            <input type="password" id="confirma-senha" name="confirma-senha">
+            
+            <label>
+                <input type="checkbox" name="newsletter" value="sim">
+                Desejo receber newsletter
+            </label>
+            
+            <label>
+                <input type="checkbox" name="termos" value="aceito" required>
+                Aceito os <a href="/termos">termos de uso</a>
+            </label>
+        </fieldset>
+        
+        <button type="submit">Cadastrar</button>
+        <button type="reset">Limpar Formulário</button>
+    </form>
+    
+</body>
+</html>

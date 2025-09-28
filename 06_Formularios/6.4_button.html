@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag BUTTON - Botão</title>
+</head>
+<body>
+    <!-- 
+    TAG BUTTON: Botão
+    
+    O que faz:
+    - Cria botões clicáveis
+    - Pode conter conteúdo HTML (texto, imagens)
+    - Mais flexível que <input type="button">
+    
+    Atributos principais:
+    - type: submit, reset, button
+    - form: associa a formulário específico
+    - formaction: sobrescreve action do form
+    - disabled: desabilita o botão
+    -->
+    
+    <h1>Exemplos da Tag BUTTON</h1>
+    
+    <form action="/processar" method="POST">
+        <h2>Tipos de Botão</h2>
+        <button type="submit">Enviar Formulário</button>
+        <button type="reset">Limpar Campos</button>
+        <button type="button" onclick="alert('Botão clicado!')">Ação Personalizada</button>
+        
+        <h2>Botões com Conteúdo Rico</h2>
+        <button type="submit">
+            ✉️ Enviar Email
+        </button>
+        
+        <button type="button">
+            <strong>Salvar</strong><br>
+            <small>Ctrl+S</small>
+        </button>
+        
+        <button type="button" disabled>
+            🔒 Indisponível
+        </button>
+        
+        <h2>Botões com Ações Específicas</h2>
+        <button type="submit" formaction="/salvar-rascunho">
+            💾 Salvar Rascunho
+        </button>
+        
+        <button type="submit" formaction="/publicar" formmethod="POST">
+            🚀 Publicar
+        </button>
+        
+        <button type="submit" formaction="/preview" formtarget="_blank">
+            👁️ Visualizar
+        </button>
+    </form>
+    
+    <!-- Botão fora do formulário -->
+    <button type="submit" form="meu-form">
+        Enviar formulário específico
+    </button>
+    
+    <form id="meu-form" action="/outro-destino">
+        <input type="text" name="campo" placeholder="Campo do outro form">
+    </form>
+    
+</body>
+</html>

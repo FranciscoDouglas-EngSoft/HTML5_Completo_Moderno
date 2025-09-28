@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag OUTPUT - Resultado de Cálculo</title>
+</head>
+<body>
+    <!-- 
+    TAG OUTPUT: Resultado de cálculo
+    
+    O que faz:
+    - Exibe resultado de cálculo ou ação do usuário
+    - Representa saída de um script
+    - Semanticamente indica um resultado
+    
+    Atributos principais:
+    - for: IDs dos elementos relacionados
+    - form: formulário associado
+    - name: nome do campo
+    -->
+    
+    <h1>Exemplos da Tag OUTPUT</h1>
+    
+    <form>
+        <h2>Calculadora Simples</h2>
+        <label for="num1">Primeiro número:</label>
+        <input type="number" id="num1" name="num1" value="0" oninput="calcular()">
+        
+        <label for="num2">Segundo número:</label>
+        <input type="number" id="num2" name="num2" value="0" oninput="calcular()">
+        
+        <p>
+            Soma: <output for="num1 num2" id="resultado">0</output>
+        </p>
+        
+        <h2>Controle de Volume</h2>
+        <label for="volume">Volume:</label>
+        <input type="range" id="volume" name="volume" min="0" max="100" 
+               value="50" oninput="atualizarVolume()">
+        
+        <p>
+            Volume atual: <output for="volume" id="volume-display">50</output>%
+        </p>
+        
+        <h2>Seletor de Cor</h2>
+        <label for="cor">Escolha uma cor:</label>
+        <input type="color" id="cor" name="cor" value="#ff0000" 
+               onchange="mostrarCor()">
+        
+        <p>
+            Cor selecionada: <output for="cor" id="cor-hex">#ff0000</output>
+        </p>
+        
+        <h2>Contador de Caracteres</h2>
+        <label for="mensagem">Sua mensagem:</label>
+        <textarea id="mensagem" name="mensagem" maxlength="280" 
+                  oninput="contarCaracteres()" placeholder="Digite sua mensagem..."></textarea>
+        
+        <p>
+            Caracteres: <output for="mensagem" id="contador">0</output>/280
+        </p>
+    </form>
+    
+    <script>
+        function calcular() {
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
+            const resultado = num1 + num2;
+            document.getElementById('resultado').textContent = resultado;
+        }
+        
+        function atualizarVolume() {
+            const volume = document.getElementById('volume').value;
+            document.getElementById('volume-display').textContent = volume;
+        }
+        
+        function mostrarCor() {
+            const cor = document.getElementById('cor').value;
+            document.getElementById('cor-hex').textContent = cor;
+            document.getElementById('cor-hex').style.color = cor;
+        }
+        
+        function contarCaracteres() {
+            const texto = document.getElementById('mensagem').value;
+            const contador = texto.length;
+            document.getElementById('contador').textContent = contador;
+            
+            // Muda cor quando próximo do limite
+            const output = document.getElementById('contador');
+            if (contador > 250) {
+                output.style.color = 'red';
+            } else if (contador > 200) {
+                output.style.color = 'orange';
+            } else {
+                output.style.color = 'black';
+            }
+        }
+    </script>
+    
+</body>
+</html>
