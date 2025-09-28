@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag SAMP - Saída de Programa</title>
+</head>
+<body>
+    <!-- 
+    TAG SAMP: Sample Output (Saída de Amostra)
+    
+    O que faz:
+    - Representa saída/output de programas
+    - Mostra resultados de comandos
+    - Indica texto produzido por sistemas/computadores
+    - Diferente de <code> que é entrada/código fonte
+    
+    Características:
+    - Elemento inline
+    - Fonte monoespaçada por padrão
+    - Representa output, não input
+    - Importante para documentação técnica
+    
+    Quando usar:
+    - Saída de comandos de terminal
+    - Resultados de execução de código
+    - Mensagens do sistema
+    - Output de programas
+    - Logs e relatórios
+    -->
+    
+    <h1>Exemplos da Tag SAMP</h1>
+    
+    <h2>Saída de Comandos</h2>
+    <p>Ao executar <code>ls -la</code>, o sistema retorna:</p>
+    <p><samp>
+        total 24<br>
+        drwxr-xr-x  3 user group  96 Jan 15 10:30 .<br>
+        drwxr-xr-x 15 user group 480 Jan 15 10:29 ..<br>
+        -rw-r--r--  1 user group 1234 Jan 15 10:30 index.html
+    </samp></p>
+    
+    <h2>Mensagens do Sistema</h2>
+    <p>Resultado da compilação:</p>
+    <p><samp>Build successful! Output file: app.exe</samp></p>
+    
+    <p>Erro encontrado:</p>
+    <p><samp>Error: File not found - config.json</samp></p>
+    
+    <h2>Saída de Programas</h2>
+    <p>Executando o programa:</p>
+    <pre><samp>
+        $ node app.js
+        Server running on port 3000
+        Connected to database successfully
+        Ready to accept connections
+    </samp></pre>
+    
+    <h2>Logs de Sistema</h2>
+    <p><samp>[2024-01-15 10:30:25] INFO: Application started</samp></p>
+    <p><samp>[2024-01-15 10:31:02] ERROR: Connection timeout</samp></p>
+    
+    <h2>Resultados de Testes</h2>
+    <p><samp>
+        Running tests...<br>
+        ✓ Test 1 passed<br>
+        ✓ Test 2 passed<br>
+        ✗ Test 3 failed<br>
+        2 of 3 tests passed
+    </samp></p>
+    
+    <h2>Comparação de Tags</h2>
+    <p>Digite: <kbd>npm start</kbd></p>
+    <p>Código: <code>console.log("Hello");</code></p>
+    <p>Saída: <samp>Hello</samp></p>
+    
+</body>
+</html>
