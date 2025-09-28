@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag BDI - Isolamento Bidirecional</title>
+</head>
+<body>
+    <!-- 
+    TAG BDI: Bidirectional Isolate (Isolamento Bidirecional)
+    
+    O que faz:
+    - Isola texto que pode ter direção diferente do texto circundante
+    - Útil para textos em árabe, hebraico ou outros idiomas da direita para esquerda
+    - Previne que texto bidirecional afete o layout do resto do conteúdo
+    - Importante para aplicações multilíngues
+    
+    Características:
+    - Elemento inline
+    - Isola a direção do texto
+    - Útil com conteúdo gerado dinamicamente
+    - Previne problemas de layout em textos bidirecionais
+    
+    Quando usar:
+    - Nomes de usuários em diferentes idiomas
+    - Conteúdo gerado por usuários
+    - Textos em idiomas com direções diferentes
+    -->
+    
+    <h1>Exemplos da Tag BDI</h1>
+    
+    <p>Usuário: <bdi>أحمد</bdi> enviou uma mensagem.</p>
+    
+    <p>Livro recomendado: <bdi>שלום עליכם</bdi> - um clássico da literatura.</p>
+    
+    <h2>Lista de Usuários</h2>
+    <ul>
+        <li>Usuário 1: <bdi>João Silva</bdi> - 25 pontos</li>
+        <li>Usuário 2: <bdi>محمد أحمد</bdi> - 30 pontos</li>
+        <li>Usuário 3: <bdi>Mary Johnson</bdi> - 20 pontos</li>
+        <li>Usuário 4: <bdi>יוסף כהן</bdi> - 35 pontos</li>
+    </ul>
+    
+    <h2>Comentários</h2>
+    <p><bdi>User123</bdi> disse: "Ótimo artigo!"</p>
+    <p><bdi>العربي_المستخدم</bdi> disse: "محتوى رائع"</p>
+    
+</body>
+</html>

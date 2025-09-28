@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag BDO - Sobrescrever Direção</title>
+</head>
+<body>
+    <!-- 
+    TAG BDO: Bidirectional Override (Sobrescrever Direção)
+    
+    O que faz:
+    - Força uma direção específica para o texto
+    - Sobrescreve a direção natural do texto
+    - Usa o atributo dir para definir direção
+    - Útil para demonstrações ou casos específicos
+    
+    Características:
+    - Elemento inline
+    - Requer o atributo dir
+    - Valores: ltr (left-to-right) ou rtl (right-to-left)
+    - Força direção independente do idioma
+    
+    Quando usar:
+    - Demonstrações de texto
+    - Casos específicos de layout
+    - Testes de direcionamento
+    -->
+    
+    <h1>Exemplos da Tag BDO</h1>
+    
+    <p>Texto normal: Este é um texto da esquerda para direita.</p>
+    
+    <p>Com BDO (rtl): <bdo dir="rtl">Este é um texto da esquerda para direita.</bdo></p>
+    
+    <p>Texto árabe normal: السلام عليكم</p>
+    
+    <p>Texto árabe forçado LTR: <bdo dir="ltr">السلام عليكم</bdo></p>
+    
+    <h2>Exemplos com Números</h2>
+    <p>Normal: ABC 123 DEF</p>
+    <p>RTL: <bdo dir="rtl">ABC 123 DEF</bdo></p>
+    
+    <h2>Efeito Espelho</h2>
+    <p>Português: <bdo dir="ltr">Olá, mundo!</bdo></p>
+    <p>Espelhado: <bdo dir="rtl">Olá, mundo!</bdo></p>
+    
+</body>
+</html>
