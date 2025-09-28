@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag IMG - Imagem</title>
+</head>
+<body>
+    <!-- 
+    TAG IMG: Imagem
+    
+    O que faz:
+    - Incorpora imagens na página
+    - Elemento vazio (self-closing)
+    - Essencial para conteúdo visual
+    
+    Atributos principais:
+    - src: caminho da imagem (obrigatório)
+    - alt: texto alternativo (obrigatório para acessibilidade)
+    - width, height: dimensões
+    - loading: carregamento lazy
+    - srcset: imagens responsivas
+    - sizes: tamanhos para diferentes viewports
+    -->
+    
+    <h1>Exemplos da Tag IMG</h1>
+    
+    <h2>Imagem Básica</h2>
+    <img src="paisagem.jpg" alt="Bela paisagem com montanhas ao fundo" width="400">
+    
+    <h2>Imagem Responsiva</h2>
+    <img src="produto.jpg" alt="Produto em destaque" 
+         style="max-width: 100%; height: auto;">
+    
+    <h2>Lazy Loading</h2>
+    <img src="imagem-pesada.jpg" alt="Imagem que carrega apenas quando visível" 
+         loading="lazy" width="300" height="200">
+    
+    <h2>Imagens Responsivas com Srcset</h2>
+    <img src="foto-pequena.jpg" 
+         srcset="foto-pequena.jpg 300w,
+                 foto-media.jpg 600w,
+                 foto-grande.jpg 1200w"
+         sizes="(max-width: 600px) 300px,
+                (max-width: 1200px) 600px,
+                1200px"
+         alt="Foto que se adapta ao tamanho da tela">
+    
+    <h2>Diferentes Formatos</h2>
+    <img src="logo.png" alt="Logo da empresa em PNG" width="150">
+    <img src="foto.webp" alt="Foto moderna em formato WebP" width="200">
+    <img src="icone.svg" alt="Ícone vetorial" width="50" height="50">
+    
+    <h2>Com Link</h2>
+    <a href="galeria.html">
+        <img src="thumbnail.jpg" alt="Clique para ver a galeria" width="200">
+    </a>
+    
+</body>
+</html>

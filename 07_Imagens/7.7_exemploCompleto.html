@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Completa - Mídia e Gráficos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        figure {
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        figure:hover {
+            transform: translateY(-5px);
+        }
+        
+        figcaption {
+            padding: 15px;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .interactive-map {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .canvas-demo {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+        }
+        
+        .svg-icons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Galeria Completa: Mídia e Gráficos em HTML5</h1>
+    
+    <!-- Seção Picture: Imagens Responsivas -->
+    <section>
+        <h2>📱 Imagens Responsivas com Picture</h2>
+        <figure>
+            <picture>
+                <source media="(min-width: 768px)" srcset="hero-desktop.webp" type="image/webp">
+                <source media="(min-width: 768px)" srcset="hero-desktop.jpg">
+                <source srcset="hero-mobile.webp" type="image/webp">
+                <img src="hero-mobile.jpg" alt="Imagem principal responsiva" 
+                     style="width: 100%; height: 300px; object-fit: cover;">
+            </picture>
+            <figcaption>
+                <strong>Imagem Responsiva:</strong> Esta imagem se adapta automaticamente 
+                ao tamanho da tela e formato suportado pelo navegador.
+            </figcaption>
+        </figure>
+    </section>
+    
+    <!-- Seção Map: Mapa Interativo -->
+    <section class="interactive-map">
+        <h2>🗺️ Mapa Interativo com Areas</h2>
+        <figure>
+            <img src="escritorio-planta.jpg" alt="Planta do escritório" 
+                 usemap="#escritorio" width="500" height="300">
+            
+            <map name="escritorio">
+                <area shape="rect" coords="50,50,150,120" 
+                      href="#sala-reuniao" alt="Sala de Reunião"
+                      title="Sala de Reunião - 10 pessoas">
+                <area shape="rect" coords="200,50,350,120" 
+                      href="#openspace" alt="Open Space"
+                      title="Área de trabalho colaborativo">
+                <area shape="rect" coords="400,50,480,120" 
+                      href="#cozinha" alt="Cozinha"
+                      title="Copa e cozinha">
+                <area shape="circle" coords="100,200,30" 
+                      href="#recepcao" alt="Recepção"
+                      title="Área de recepção">
+            </map>
+            
+            <figcaption>
+                <strong>Planta Interativa:</strong> Clique nas diferentes áreas 
+                para obter mais informações sobre cada ambiente.
+            </figcaption>
+        </figure>
+    </section>
+    
+    <!-- Seção Canvas: Gráficos Dinâmicos -->
+    <section>
+        <h2>📊 Gráficos Dinâmicos com Canvas</h2>
+        <div style="text-align: center;">
+            <canvas id="grafico-dashboard" width="600" height="400" class="canvas-demo">
+                Gráfico não suportado pelo navegador.
+            </canvas>
+            <p><strong>Dashboard Interativo:</strong> Gráfico gerado dinamicamente com Canvas</p>
+        </div>
+    </section>
+    
+    <!-- Seção SVG: Ícones e Ilustrações -->
+    <section>
+        <h2>🎯 Ícones SVG Personalizados</h2>
+        <div class="svg-icons">
+            <!-- Ícone de Upload -->
+            <div style="text-align: center;">
+                <svg width="60" height="60" viewBox="0 0 24 24" style="cursor: pointer;">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" 
+                          fill="#3498db"/>
+                    <path d="M12 15V7M9 10L12 7L15 10" stroke="white" stroke-width="2" 
+                          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <p>Upload</p>
+            </div>
+            
+            <!-- Ícone de Download -->
+            <div style="text-align: center;">
+                <svg width="60" height="60" viewBox="0 0 24 24" style="cursor: pointer;">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" 
+                          fill="#2ecc71"/>
+                    <path d="M12 9V17M9 14L12 17L15 14" stroke="white" stroke-width="2" 
+                          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <p>Download</p>
+            </div>
+            
+            <!-- Ícone de Configuração -->
+            <div style="text-align: center;">
+                <svg width="60" height="60" viewBox="0 0 24 24" style="cursor: pointer;">
+                    <circle cx="12" cy="12" r="10" fill="#f39c12"/>
+                    <path d="M12 8V12L15 15" stroke="white" stroke-width="2" 
+                          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <p>Configurar</p>
+            </div>
+            
+            <!-- Ícone de Estatísticas -->
+            <div style="text-align: center;">
+                <svg width="60" height="60" viewBox="0 0 24 24" style="cursor: pointer;">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" 
+                          fill="#e74c3c" stroke="white" stroke-width="2"/>
+                    <path d="M8 12L12 8L16 12L20 8" stroke="white" stroke-width="2" 
+                          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+                <p>Estatísticas</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galeria com Figure -->
+    <section>
+        <h2>🖼️ Galeria com Figure e Figcaption</h2>
+        <div class="gallery">
+            <figure>
+                <img src="projeto1.jpg" alt="Projeto de website moderno" 
+                     style="width: 100%; height: 200px; object-fit: cover;">
+                <figcaption>
+                    <strong>Projeto Website:</strong> Design moderno e responsivo 
+                    desenvolvido para cliente do setor tecnológico.
+                </figcaption>
+            </figure>
+            
+            <figure>
+                <canvas id="mini-grafico" width="300" height="200" 
+                        style="width: 100%; max-width: 300px;">
+                    Gráfico não suportado.
+                </canvas>
+                <figcaption>
+                    <strong>Visualização de Dados:</strong> Gráfico interativo 
+                    mostrando performance mensal da aplicação.
+                </figcaption>
+            </figure>
+            
+            <figure>
+                <svg viewBox="0 0 300 200" style="width: 100%; height: 200px;">
+                    <defs>
+                        <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="300" height="200" fill="url(#bg-gradient)"/>
+                    <circle cx="150" cy="100" r="50" fill="white" opacity="0.9"/>
+                    <text x="150" y="105" text-anchor="middle" font-size="20" fill="#764ba2">SVG</text>
+                </svg>
+                <figcaption>
+                    <strong>Ilustração SVG:</strong> Gráfico vetorial escalável 
+                    criado com gradientes e formas geométricas.
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+    
+    <script>
+        // Canvas Dashboard
+        const canvasDashboard = document.getElementById('grafico-dashboard');
+        const ctx = canvasDashboard.getContext('2d');
+        
+        // Desenhar dashboard
+        function desenharDashboard() {
+            // Limpar canvas
+            ctx.clearRect(0, 0, canvasDashboard.width, canvasDashboard.height);
+            
+            // Título
+            ctx.font = 'bold 24px Arial';
+            ctx.fillStyle = '#2c3e50';
+            ctx.textAlign = 'center';
+            ctx.fillText('Dashboard de Vendas 2024', 300, 40);
+            
+            // Gráfico de barras
+            const dados = [75, 90, 65, 80, 95, 70];
+            const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+            const cores = ['#3498db', '#2ecc71', '#f1c40f', '#e67e22', '#e74c3c', '#9b59b6'];
+            
+            const larguraBarra = 60;
+            const espacamento = 30;
+            const inicioX = 80;
+            const alturaMax = 200;
+            
+            meses.forEach((mes, index) => {
+                const x = inicioX + index * (larguraBarra + espacamento);
+                const altura = (dados[index] / 100) * alturaMax;
+                const y = 320 - altura;
+                
+                // Barra
+                ctx.fillStyle = cores[index];
+                ctx.fillRect(x, y, larguraBarra, altura);
+                
+                // Valor
+                ctx.fillStyle = '#2c3e50';
+                ctx.font = '14px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(dados[index] + 'k', x + larguraBarra/2, y - 10);
+                
+                // Mês
+                ctx.fillText(mes, x + larguraBarra/2, 340);
+            });
+            
+            // Linha de tendência
+            ctx.beginPath();
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 3;
+            
+            meses.forEach((mes, index) => {
+                const x = inicioX + index * (larguraBarra + espacamento) + larguraBarra/2;
+                const y = 320 - (dados[index] / 100) * alturaMax;
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            
+            ctx.stroke();
+            
+            // Legenda
+            ctx.font = '12px Arial';
+            ctx.fillStyle = '#7f8c8d';
+            ctx.textAlign = 'left';
+            ctx.fillText('Vendas em milhares (k)', 50, 380);
+            
+            // Linha de tendência legenda
+            ctx.strokeStyle = '#e74c3c';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(250, 375);
+            ctx.lineTo(280, 375);
+            ctx.stroke();
+            ctx.fillText('Tendência', 290, 380);
+        }
+        
+        // Mini gráfico
+        const miniCanvas = document.getElementById('mini-grafico');
+        if (miniCanvas) {
+            const miniCtx = miniCanvas.getContext('2d');
+            
+            // Gráfico de pizza simples
+            const fatias = [30, 25, 20, 15, 10];
+            const coresFatias = ['#3498db', '#2ecc71', '#f1c40f', '#e67e22', '#e74c3c'];
+            
+            let anguloAtual = 0;
+            const centerX = 150;
+            const centerY = 100;
+            const raio = 80;
+            
+            fatias.forEach((fatia, index) => {
+                const anguloFatia = (fatia / 100) * 2 * Math.PI;
+                
+                miniCtx.beginPath();
+                miniCtx.moveTo(centerX, centerY);
+                miniCtx.arc(centerX, centerY, raio, anguloAtual, anguloAtual + anguloFatia);
+                miniCtx.closePath();
+                miniCtx.fillStyle = coresFatias[index];
+                miniCtx.fill();
+                
+                anguloAtual += anguloFatia;
+            });
+        }
+        
+        // Carregar dashboard
+        desenharDashboard();
+        
+        // Adicionar interatividade aos mapas
+        document.querySelectorAll('area').forEach(area => {
+            area.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert(`Você clicou em: ${this.alt}\n${this.title}`);
+            });
+        });
+    </script>
+    
+</body>
+</html>

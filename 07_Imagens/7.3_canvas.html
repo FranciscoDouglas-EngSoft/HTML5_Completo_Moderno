@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag CANVAS - Tela para Desenho</title>
+</head>
+<body>
+    <!-- 
+    TAG CANVAS: Tela para desenho
+    
+    O que faz:
+    - Área de desenho programática
+    - Gráficos 2D e 3D (WebGL)
+    - Animações e jogos
+    - Manipulada via JavaScript
+    
+    Atributos principais:
+    - width: largura em pixels
+    - height: altura em pixels
+    - Conteúdo interno como fallback
+    -->
+    
+    <h1>Exemplos da Tag CANVAS</h1>
+    
+    <h2>Desenho Básico</h2>
+    <canvas id="canvas-basico" width="400" height="200" style="border: 1px solid #000;">
+        Seu navegador não suporta canvas.
+    </canvas>
+    
+    <h2>Gráfico de Barras</h2>
+    <canvas id="grafico-barras" width="500" height="300" style="border: 1px solid #ccc;">
+        Gráfico de barras não disponível.
+    </canvas>
+    
+    <h2>Animação Simples</h2>
+    <canvas id="animacao" width="400" height="200" style="border: 1px solid #666;">
+        Animação não suportada.
+    </canvas>
+    <br>
+    <button onclick="iniciarAnimacao()">Iniciar</button>
+    <button onclick="pararAnimacao()">Parar</button>
+    
+    <h2>Desenho Interativo</h2>
+    <canvas id="desenho" width="500" height="300" 
+            style="border: 2px solid #333; cursor: crosshair;">
+        Área de desenho não disponível.
+    </canvas>
+    <br>
+    <button onclick="limparCanvas()">Limpar</button>
+    <input type="color" id="cor-pincel" value="#000000">
+    <input type="range" id="tamanho-pincel" min="1" max="20" value="5">
+    
+    <script>
+        // Canvas Básico
+        const canvasBasico = document.getElementById('canvas-basico');
+        const ctxBasico = canvasBasico.getContext('2d');
+        
+        // Retângulo
+        ctxBasico.fillStyle = '#ff0000';
+        ctxBasico.fillRect(50, 50, 100, 80);
+        
+        // Círculo
+        ctxBasico.beginPath();
+        ctxBasico.arc(250, 90, 40, 0, 2 * Math.PI);
+        ctxBasico.fillStyle = '#00ff00';
+        ctxBasico.fill();
+        
+        // Texto
+        ctxBasico.font = '20px Arial';
+        ctxBasico.fillStyle = '#0000ff';
+        ctxBasico.fillText('Canvas!', 150, 150);
+        
+        // Gráfico de Barras
+        const canvasGrafico = document.getElementById('grafico-barras');
+        const ctxGrafico = canvasGrafico.getContext('2d');
+        
+        const dados = [65, 45, 80, 55, 90];
+        const cores = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7'];
+        const larguraBarra = 60;
+        const espacamento = 20;
+        
+        dados.forEach((valor, index) => {
+            const x = index * (larguraBarra + espacamento) + 50;
+            const altura = (valor / 100) * 200;
+            const y = 250 - altura;
+            
+            ctxGrafico.fillStyle = cores[index];
+            ctxGrafico.fillRect(x, y, larguraBarra, altura);
+            
+            // Labels
+            ctxGrafico.fillStyle = '#333';
+            ctxGrafico.font = '14px Arial';
+            ctxGrafico.fillText(valor + '%', x + 15, y - 10);
+        });
+        
+        // Animação
+        const canvasAnim = document.getElementById('animacao');
+        const ctxAnim = canvasAnim.getContext('2d');
+        let x = 0;
+        let animacaoId;
+        
+        function animar() {
+            ctxAnim.clearRect(0, 0, canvasAnim.width, canvasAnim.height);
+            
+            ctxAnim.beginPath();
+            ctxAnim.arc(x, 100, 20, 0, 2 * Math.PI);
+            ctxAnim.fillStyle = '#ff4757';
+            ctxAnim.fill();
+            
+            x += 2;
+            if (x > canvasAnim.width + 20) {
+                x = -20;
+            }
+            
+            animacaoId = requestAnimationFrame(animar);
+        }
+        
+        function iniciarAnimacao() {
+            animar();
+        }
+        
+        function pararAnimacao() {
+            cancelAnimationFrame(animacaoId);
+        }
+        
+        // Desenho Interativo
+        const canvasDesenho = document.getElementById('desenho');
+        const ctxDesenho = canvasDesenho.getContext('2d');
+        let desenhando = false;
+        
+        canvasDesenho.addEventListener('mousedown', iniciarDesenho);
+        canvasDesenho.addEventListener('mousemove', desenhar);
+        canvasDesenho.addEventListener('mouseup', pararDesenho);
+        
+        function iniciarDesenho(e) {
+            desenhando = true;
+            const rect = canvasDesenho.getBoundingClientRect();
+            ctxDesenho.beginPath();
+            ctxDesenho.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+        
+        function desenhar(e) {
+            if (!desenhando) return;
+            
+            const rect = canvasDesenho.getBoundingClientRect();
+            const cor = document.getElementById('cor-pincel').value;
+            const tamanho = document.getElementById('tamanho-pincel').value;
+            
+            ctxDesenho.lineWidth = tamanho;
+            ctxDesenho.strokeStyle = cor;
+            ctxDesenho.lineCap = 'round';
+            
+            ctxDesenho.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+            ctxDesenho.stroke();
+            ctxDesenho.beginPath();
+            ctxDesenho.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+        
+        function pararDesenho() {
+            desenhando = false;
+            ctxDesenho.beginPath();
+        }
+        
+        function limparCanvas() {
+            ctxDesenho.clearRect(0, 0, canvasDesenho.width, canvasDesenho.height);
+        }
+    </script>
+    
+</body>
+</html>

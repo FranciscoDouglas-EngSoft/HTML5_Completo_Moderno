@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags FIGURE e FIGCAPTION</title>
+    <style>
+        figure {
+            margin: 20px 0;
+            text-align: center;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+        }
+        figcaption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .gallery {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .gallery figure {
+            flex: 1;
+            min-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    TAGS FIGURE e FIGCAPTION:
+    FIGURE: Container semântico para conteúdo referenciado
+    FIGCAPTION: Legenda da figura
+    
+    O que fazem:
+    - Agrupam conteúdo com sua legenda
+    - Melhoram semântica e acessibilidade
+    - Podem conter imagens, gráficos, códigos, etc.
+    - A legenda pode vir antes ou depois do conteúdo
+    -->
+    
+    <h1>Exemplos das Tags FIGURE e FIGCAPTION</h1>
+    
+    <h2>Imagem com Legenda</h2>
+    <figure>
+        <img src="paisagem.jpg" alt="Vista panorâmica das montanhas" width="400">
+        <figcaption>
+            <strong>Figura 1:</strong> Vista panorâmica das montanhas da Serra da Mantiqueira, 
+            fotografada durante o nascer do sol em janeiro de 2024.
+        </figcaption>
+    </figure>
+    
+    <h2>Gráfico com Explicação</h2>
+    <figure>
+        <img src="grafico-vendas.png" alt="Gráfico de vendas do último trimestre" width="350">
+        <figcaption>
+            Gráfico 2.1 - Evolução das vendas no último trimestre de 2024. 
+            Observa-se um crescimento de 25% em relação ao período anterior.
+        </figcaption>
+    </figure>
+    
+    <h2>Código com Descrição</h2>
+    <figure>
+        <pre><code>
+function saudacao(nome) {
+    return `Olá, ${nome}!`;
+}
+
+console.log(saudacao('Maria'));
+        </code></pre>
+        <figcaption>
+            <strong>Listagem 1:</strong> Exemplo de função JavaScript que 
+            demonstra o uso de template literals para criar saudações personalizadas.
+        </figcaption>
+    </figure>
+    
+    <h2>Quote com Atribuição</h2>
+    <figure>
+        <blockquote>
+            <p>"A imaginação é mais importante que o conhecimento, 
+            pois o conhecimento é limitado, enquanto a imaginação 
+            abrange o mundo inteiro."</p>
+        </blockquote>
+        <figcaption>
+            — Albert Einstein, físico teórico alemão
+        </figcaption>
+    </figure>
+    
+    <h2>Galeria de Imagens</h2>
+    <div class="gallery">
+        <figure>
+            <img src="foto1.jpg" alt="Primeira foto da série" width="200">
+            <figcaption>Foto 1: Início da jornada</figcaption>
+        </figure>
+        
+        <figure>
+            <img src="foto2.jpg" alt="Segunda foto da série" width="200">
+            <figcaption>Foto 2: Durante o percurso</figcaption>
+        </figure>
+        
+        <figure>
+            <img src="foto3.jpg" alt="Terceira foto da série" width="200">
+            <figcaption>Foto 3: Chegada ao destino</figcaption>
+        </figure>
+    </div>
+    
+    <h2>Vídeo com Legenda</h2>
+    <figure>
+        <video controls width="400">
+            <source src="tutorial.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+        </video>
+        <figcaption>
+            <strong>Vídeo 1:</strong> Tutorial completo sobre como usar 
+            as tags semânticas em HTML5. Duração: 15 minutos.
+        </figcaption>
+    </figure>
+    
+</body>
+</html>

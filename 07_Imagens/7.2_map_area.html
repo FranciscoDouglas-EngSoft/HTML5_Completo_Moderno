@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags MAP e AREA - Mapa de Imagem</title>
+</head>
+<body>
+    <!-- 
+    TAGS DE MAPA:
+    MAP: Define um mapa de imagem
+    AREA: Define área clicável no mapa
+    
+    O que fazem:
+    - Criam áreas clicáveis em imagens
+    - Permitem links em partes específicas da imagem
+    - Úteis para mapas, diagramas, infográficos
+    
+    Formas das áreas:
+    - rect: retângulo (x1,y1,x2,y2)
+    - circle: círculo (x,y,raio)
+    - poly: polígono (x1,y1,x2,y2,...)
+    - default: área padrão
+    -->
+    
+    <h1>Exemplos das Tags MAP e AREA</h1>
+    
+    <h2>Mapa do Brasil</h2>
+    <img src="mapa-brasil.jpg" alt="Mapa do Brasil" usemap="#brasil" width="500">
+    
+    <map name="brasil">
+        <area shape="rect" coords="100,50,200,150" href="/sudeste" alt="Região Sudeste">
+        <area shape="rect" coords="200,200,350,300" href="/sul" alt="Região Sul">
+        <area shape="rect" coords="150,10,300,100" href="/nordeste" alt="Região Nordeste">
+        <area shape="rect" coords="50,100,150,250" href="/centro-oeste" alt="Centro-Oeste">
+        <area shape="rect" coords="10,10,150,150" href="/norte" alt="Região Norte">
+    </map>
+    
+    <h2>Diagrama Circular</h2>
+    <img src="diagrama.png" alt="Diagrama com áreas clicáveis" usemap="#diagrama" width="300">
+    
+    <map name="diagrama">
+        <area shape="circle" coords="150,150,50" href="/centro" alt="Área central">
+        <area shape="circle" coords="100,100,30" href="/setor1" alt="Setor 1">
+        <area shape="circle" coords="200,100,30" href="/setor2" alt="Setor 2">
+        <area shape="circle" coords="100,200,30" href="/setor3" alt="Setor 3">
+        <area shape="circle" coords="200,200,30" href="/setor4" alt="Setor 4">
+    </map>
+    
+    <h2>Polígono Personalizado</h2>
+    <img src="edificio.jpg" alt="Planta do edifício" usemap="#edificio" width="400">
+    
+    <map name="edificio">
+        <area shape="poly" coords="50,50,150,50,150,100,100,100,100,150,50,150" 
+              href="/sala-a" alt="Sala A">
+        <area shape="poly" coords="150,50,250,50,250,150,150,150" 
+              href="/sala-b" alt="Sala B">
+        <area shape="rect" coords="50,150,250,200" href="/corredor" alt="Corredor">
+        <area shape="default" href="/informacoes" alt="Informações gerais">
+    </map>
+    
+    <h2>Navegação por Imagem</h2>
+    <img src="menu-visual.png" alt="Menu de navegação visual" usemap="#menu" width="600">
+    
+    <map name="menu">
+        <area shape="rect" coords="0,0,100,50" href="/" alt="Home">
+        <area shape="rect" coords="100,0,200,50" href="/produtos" alt="Produtos">
+        <area shape="rect" coords="200,0,300,50" href="/servicos" alt="Serviços">
+        <area shape="rect" coords="300,0,400,50" href="/sobre" alt="Sobre">
+        <area shape="rect" coords="400,0,500,50" href="/contato" alt="Contato">
+    </map>
+    
+</body>
+</html>

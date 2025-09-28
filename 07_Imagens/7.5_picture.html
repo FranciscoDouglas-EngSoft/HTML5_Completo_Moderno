@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag PICTURE - Imagens Responsivas</title>
+</head>
+<body>
+    <!-- 
+    TAG PICTURE: Imagens responsivas avançadas
+    
+    O que faz:
+    - Container para múltiples fontes de imagem
+    - Permite diferentes imagens para diferentes condições
+    - Suporte a diferentes formatos (WebP, AVIF)
+    - Mais controle que srcset
+    
+    Elementos filhos:
+    - <source>: define condições e fontes
+    - <img>: imagem padrão (obrigatória)
+    -->
+    
+    <h1>Exemplos da Tag PICTURE</h1>
+    
+    <h2>Diferentes Formatos por Suporte</h2>
+    <picture>
+        <source srcset="imagem.avif" type="image/avif">
+        <source srcset="imagem.webp" type="image/webp">
+        <source srcset="imagem.jpg" type="image/jpeg">
+        <img src="imagem.jpg" alt="Imagem em múltiplos formatos" width="400">
+    </picture>
+    
+    <h2>Diferentes Imagens por Tamanho de Tela</h2>
+    <picture>
+        <source media="(min-width: 1200px)" srcset="banner-desktop.jpg">
+        <source media="(min-width: 768px)" srcset="banner-tablet.jpg">
+        <source media="(min-width: 480px)" srcset="banner-mobile.jpg">
+        <img src="banner-mobile.jpg" alt="Banner responsivo" style="width: 100%; max-width: 800px;">
+    </picture>
+    
+    <h2>Diferentes Orientações</h2>
+    <picture>
+        <source media="(orientation: landscape)" srcset="foto-horizontal.jpg">
+        <source media="(orientation: portrait)" srcset="foto-vertical.jpg">
+        <img src="foto-horizontal.jpg" alt="Foto que muda com orientação" width="300">
+    </picture>
+    
+    <h2>Dark/Light Mode</h2>
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="logo-dark.png">
+        <source media="(prefers-color-scheme: light)" srcset="logo-light.png">
+        <img src="logo-light.png" alt="Logo que se adapta ao tema" width="200">
+    </picture>
+    
+    <h2>Alta Densidade de Pixels</h2>
+    <picture>
+        <source media="(min-resolution: 2dppx)" srcset="icone-2x.png">
+        <source media="(min-resolution: 3dppx)" srcset="icone-3x.png">
+        <img src="icone-1x.png" alt="Ícone para diferentes densidades" width="64">
+    </picture>
+    
+    <h2>Combinação Complexa</h2>
+    <picture>
+        <!-- Desktop com suporte a WebP -->
+        <source media="(min-width: 1024px)" 
+                srcset="hero-desktop.webp" 
+                type="image/webp">
+        <source media="(min-width: 1024px)" 
+                srcset="hero-desktop.jpg">
+        
+        <!-- Tablet com suporte a WebP -->
+        <source media="(min-width: 768px)" 
+                srcset="hero-tablet.webp" 
+                type="image/webp">
+        <source media="(min-width: 768px)" 
+                srcset="hero-tablet.jpg">
+        
+        <!-- Mobile com suporte a WebP -->
+        <source srcset="hero-mobile.webp" 
+                type="image/webp">
+        
+        <!-- Fallback -->
+        <img src="hero-mobile.jpg" 
+             alt="Imagem principal do site" 
+             style="width: 100%; height: auto;">
+    </picture>
+    
+</body>
+</html>
