@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag NAV - Navegação</title>
+    <style>
+        nav { margin: 20px 0; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline; margin-right: 20px; }
+        nav ul li a { text-decoration: none; color: #007bff; }
+        nav ul li a:hover { text-decoration: underline; }
+        .breadcrumb { background: #f8f9fa; padding: 10px; border-radius: 5px; }
+        .footer-nav { background: #343a40; color: white; padding: 20px; }
+        .footer-nav a { color: #adb5bd; }
+    </style>
+</head>
+<body>
+    <!-- 
+    TAG NAV: Navigation (Navegação)
+    
+    O que faz:
+    - Define seção de navegação
+    - Agrupa links de navegação
+    - Melhora semântica e acessibilidade
+    - Ajuda leitores de tela
+    
+    Quando usar:
+    - Menu principal
+    - Breadcrumbs
+    - Paginação
+    - Menu do rodapé
+    - Não para qualquer grupo de links
+    -->
+    
+    <header>
+        <h1>Meu Site</h1>
+        
+        <!-- Menu principal -->
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+            <ol>
+                <li><a href="/">Home</a> &gt;</li>
+                <li><a href="/produtos">Produtos</a> &gt;</li>
+                <li>Notebooks</li>
+            </ol>
+        </nav>
+        
+        <h2>Conteúdo Principal</h2>
+        <p>Este é o conteúdo principal da página...</p>
+        
+        <!-- Navegação de artigos -->
+        <nav aria-label="Navegação de artigos">
+            <h3>Artigos Relacionados</h3>
+            <ul>
+                <li><a href="artigo1.html">Como Escolher um Notebook</a></li>
+                <li><a href="artigo2.html">Manutenção de Computadores</a></li>
+                <li><a href="artigo3.html">Tendências em Tecnologia</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Paginação -->
+        <nav aria-label="Paginação">
+            <ul>
+                <li><a href="?page=1">&laquo; Anterior</a></li>
+                <li><a href="?page=1">1</a></li>
+                <li><a href="?page=2" aria-current="page">2</a></li>
+                <li><a href="?page=3">3</a></li>
+                <li><a href="?page=3">Próximo &raquo;</a></li>
+            </ul>
+        </nav>
+    </main>
+    
+    <footer>
+        <!-- Menu do rodapé -->
+        <nav aria-label="Menu do rodapé" class="footer-nav">
+            <h3>Links Úteis</h3>
+            <ul>
+                <li><a href="#termos">Termos de Uso</a></li>
+                <li><a href="#privacidade">Política de Privacidade</a></li>
+                <li><a href="#suporte">Suporte</a></li>
+                <li><a href="#sitemap">Mapa do Site</a></li>
+            </ul>
+        </nav>
+    </footer>
+    
+</body>
+</html>

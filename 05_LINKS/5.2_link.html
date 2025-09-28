@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag LINK - Link de Recursos</title>
+    
+    <!-- 
+    TAG LINK: Link de recursos externos
+    
+    O que faz:
+    - Conecta a página com recursos externos
+    - Usada apenas no <head>
+    - Não possui conteúdo (elemento vazio)
+    - Define relacionamentos entre documentos
+    
+    Atributos principais:
+    - rel: tipo de relação
+    - href: URL do recurso
+    - type: tipo MIME
+    - media: condições de mídia
+    -->
+    
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    
+    <!-- Fontes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    
+    <!-- Pré-carregar recursos -->
+    <link rel="preload" href="fonte-principal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="prefetch" href="proxima-pagina.html">
+    
+    <!-- CSS para diferentes mídias -->
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 768px)">
+    
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="//exemplo.com">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.exemplo.com/pagina-oficial">
+    
+    <!-- Alternate versions -->
+    <link rel="alternate" hreflang="en" href="https://www.exemplo.com/en/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="feed.xml">
+    
+</head>
+<body>
+    <h1>Exemplos da Tag LINK</h1>
+    
+    <p>A tag &lt;link&gt; é usada no &lt;head&gt; para conectar recursos externos:</p>
+    
+    <ul>
+        <li><strong>Stylesheet:</strong> CSS externo</li>
+        <li><strong>Icon:</strong> Favicon e ícones</li>
+        <li><strong>Preload:</strong> Pré-carregar recursos</li>
+        <li><strong>Prefetch:</strong> Pré-buscar próxima página</li>
+        <li><strong>DNS-prefetch:</strong> Resolver DNS antecipadamente</li>
+        <li><strong>Canonical:</strong> URL canônica para SEO</li>
+    </ul>
+    
+    <p>Esta página usa várias dessas funcionalidades!</p>
+    
+</body>
+</html>
