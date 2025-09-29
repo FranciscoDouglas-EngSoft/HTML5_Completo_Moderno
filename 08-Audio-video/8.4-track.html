@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag TRACK - Legendas e Acessibilidade</title>
+    <style>
+        .video-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .track-controls {
+            margin: 10px 0;
+        }
+        .track-controls button {
+            margin: 5px;
+            padding: 5px 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .track-controls button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    TAG TRACK: Legendas e faixas de texto
+    
+    O que faz:
+    - Adiciona legendas, descrições, capítulos
+    - Melhora acessibilidade de vídeos/áudios
+    - Suporta múltiplos idiomas
+    - Formato WebVTT (.vtt)
+    
+    Atributos principais:
+    - kind: tipo da faixa (subtitles, captions, descriptions, chapters, metadata)
+    - src: arquivo WebVTT
+    - srclang: idioma da faixa
+    - label: nome exibido ao usuário
+    - default: faixa padrão
+    -->
+    
+    <h1>Exemplos da Tag TRACK</h1>
+    
+    <div class="video-section">
+        <h2>Vídeo com Legendas Multilíngues</h2>
+        <video id="multilang-video" controls width="600" poster="aula-poster.jpg">
+            <source src="aula-html.mp4" type="video/mp4">
+            <source src="aula-html.webm" type="video/webm">
+            
+            <!-- Legendas em português (padrão) -->
+            <track kind="subtitles" 
+                   src="legendas-pt.vtt" 
+                   srclang="pt-BR" 
+                   label="Português (Brasil)" 
+                   default>
+            
+            <!-- Legendas em inglês -->
+            <track kind="subtitles" 
+                   src="legendas-en.vtt" 
+                   srclang="en" 
+                   label="English">
+            
+            <!-- Legendas em espanhol -->
+            <track kind="subtitles" 
+                   src="legendas-es.vtt" 
+                   srclang="es" 
+                   label="Español">
+            
+            <!-- Descrições para acessibilidade -->
+            <track kind="descriptions" 
+                   src="descricoes-pt.vtt" 
+                   srclang="pt-BR" 
+                   label="Descrição em Português">
+            
+            Vídeo não suportado.
+        </video>
+        
+        <div class="track-controls">
+            <h4>Controles de Legenda:</h4>
+            <button onclick="changeSubtitle('pt-BR')">Português</button>
+            <button onclick="changeSubtitle('en')">English</button>
+            <button onclick="changeSubtitle('es')">Español</button>
+            <button onclick="toggleDescriptions()">Descrições</button>
+            <button onclick="disableSubtitles()">Desligar</button>
+        </div>
+    </div>
+    
+    <div class="video-section">
+        <h2>Vídeo Educacional com Capítulos</h2>
+        <video id="chapter-video" controls width="600">
+            <source src="curso-completo.mp4" type="video/mp4">
+            
+            <!-- Capítulos do curso -->
+            <track kind="chapters" 
+                   src="capitulos.vtt" 
+                   srclang="pt-BR" 
+                   label="Capítulos do Curso" 
+                   default>
+            
+            <!-- Legendas -->
+            <track kind="captions" 
+                   src="legenda-curso.vtt" 
+                   srclang="pt-BR" 
+                   label="Legendas PT-BR">
+            
+            Curso não disponível.
+        </video>
+        
+        <div id="chapters-list" style="margin-top: 15px;">
+            <h4>📚 Capítulos do Curso:</h4>
+            <ul id="chapter-navigation">
+                <!-- Capítulos serão carregados aqui via JavaScript -->
+            </ul>
+        </div>
+    </div>
+    
+    <div class="video-section">
+        <h2>Podcast com Transcrição</h2>
+        <audio id="podcast-audio" controls style="width: 100%;">
+            <source src="podcast-episodio.mp3" type="audio/mpeg">
+            <source src="podcast-episodio.ogg" type="audio/ogg">
+            
+            <!-- Transcrição completa -->
+            <track kind="captions" 
+                   src="podcast-transcricao.vtt" 
+                   srclang="pt-BR" 
+                   label="Transcrição" 
+                   default>
+            
+            <!-- Metadados (tópicos, timestamps) -->
+            <track kind="metadata" 
+                   src="podcast-metadata.vtt" 
+                   srclang="pt-BR" 
+                   label="Tópicos">
+        </audio>
+        
+        <div style="margin-top: 15px;">
+            <h4>📝 Transcrição:</h4>
+            <button onclick="toggleTranscript()">Mostrar/Ocultar Transcrição</button>
+            <div id="transcript-display" style="display: none; 
+                                                margin-top: 10px; 
+                                                padding: 15px; 
+                                                background: white; 
+                                                border-left: 4px solid #007bff;">
+                <!-- Transcrição será exibida aqui -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-section">
+        <h2>Vídeo Acessível Completo</h2>
+        <video id="accessible-video" controls width="600">
+            <source src="apresentacao-empresa.mp4" type="video/mp4">
+            <source src="apresentacao-empresa.webm" type="video/webm">
+            
+            <!-- Legendas fechadas (closed captions) - incluem efeitos sonoros -->
+            <track kind="captions" 
+                   src="cc-completo.vtt" 
+                   srclang="pt-BR" 
+                   label="Legendas Fechadas PT-BR" 
+                   default>
+            
+            <!-- Legendas simples (subtitles) -->
+            <track kind="subtitles" 
+                   src="subtitles-simples.vtt" 
+                   srclang="pt-BR" 
+                   label="Legendas Simples">
+            
+            <!-- Audiodescrição -->
+            <track kind="descriptions" 
+                   src="audiodescricao.vtt" 
+                   srclang="pt-BR" 
+                   label="Audiodescrição">
+            
+            <!-- Capítulos -->
+            <track kind="chapters" 
+                   src="capitulos-apresentacao.vtt" 
+                   srclang="pt-BR" 
+                   label="Seções da Apresentação">
+            
+            Vídeo não disponível.
+        </video>
+        
+        <div style="margin-top: 15px;">
+            <h4>♿ Acessibilidade:</h4>
+            <p>Este vídeo inclui:</p>
+            <ul>
+                <li>✅ Legendas fechadas (CC) com descrição de sons</li>
+                <li>✅ Audiodescrição para pessoas com deficiência visual</li>
+                <li>✅ Navegação por capítulos</li>
+                <li>✅ Controles via teclado</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Controle de legendas
+        function changeSubtitle(lang) {
+            const video = document.getElementById('multilang-video');
+            const tracks = video.textTracks;
+            
+            // Desabilitar todas as faixas
+            for (let i = 0; i < tracks.length; i++) {
+                tracks[i].mode = 'hidden';
+            }
+            
+            // Habilitar faixa do idioma selecionado
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracks[i].language === lang && tracks[i].kind === 'subtitles') {
+                    tracks[i].mode = 'showing';
+                    break;
+                }
+            }
+        }
+        
+        function disableSubtitles() {
+            const video = document.getElementById('multilang-video');
+            const tracks = video.textTracks;
+            
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracks[i].kind === 'subtitles') {
+                    tracks[i].mode = 'hidden';
+                }
+            }
+        }
+        
+        function toggleDescriptions() {
+            const video = document.getElementById('multilang-video');
+            const tracks = video.textTracks;
+            
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracks[i].kind === 'descriptions') {
+                    tracks[i].mode = tracks[i].mode === 'showing' ? 'hidden' : 'showing';
+                    break;
+                }
+            }
+        }
+        
+        // Carregar capítulos
+        function loadChapters() {
+            const video = document.getElementById('chapter-video');
+            const chaptersList = document.getElementById('chapter-navigation');
+            
+            video.addEventListener('loadedmetadata', function() {
+                const tracks = video.textTracks;
+                
+                for (let i = 0; i < tracks.length; i++) {
+                    if (tracks[i].kind === 'chapters') {
+                        tracks[i].mode = 'hidden'; // Não mostrar no vídeo
+                        
+                        tracks[i].addEventListener('load', function() {
+                            const cues = tracks[i].cues;
+                            
+                            for (let j = 0; j < cues.length; j++) {
+                                const cue = cues[j];
+                                const li = document.createElement('li');
+                                li.innerHTML = `
+                                    <a href="#" onclick="seekToChapter(${cue.startTime}); return false;" 
+                                       style="text-decoration: none; color: #007bff;">
+                                        ${formatTime(cue.startTime)} - ${cue.text}
+                                    </a>
+                                `;
+                                chaptersList.appendChild(li);
+                            }
+                        });
+                        break;
+                    }
+                }
+            });
+        }
+        
+        function seekToChapter(time) {
+            const video = document.getElementById('chapter-video');
+            video.currentTime = time;
+            video.play();
+        }
+        
+        // Transcrição do podcast
+        function toggleTranscript() {
+            const display = document.getElementById('transcript-display');
+            const audio = document.getElementById('podcast-audio');
+            
+            if (display.style.display === 'none') {
+                display.style.display = 'block';
+                loadTranscript();
+            } else {
+                display.style.display = 'none';
+            }
+        }
+        
+        function loadTranscript() {
+            const audio = document.getElementById('podcast-audio');
+            const display = document.getElementById('transcript-display');
+            const tracks = audio.textTracks;
+            
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracks[i].kind === 'captions') {
+                    tracks[i].mode = 'hidden';
+                    
+                    const cues = tracks[i].cues;
+                    let transcript = '';
+                    
+                    for (let j = 0; j < cues.length; j++) {
+                        const cue = cues[j];
+                        transcript += `
+                            <p>
+                                <strong>[${formatTime(cue.startTime)}]</strong> 
+                                ${cue.text}
+                            </p>
+                        `;
+                    }
+                    
+                    display.innerHTML = transcript || 'Transcrição não disponível.';
+                    break;
+                }
+            }
+        }
+        
+        // Utilitários
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        // Inicializar funcionalidades
+        document.addEventListener('DOMContentLoaded', function() {
+            loadChapters();
+            
+            // Melhorar acessibilidade via teclado
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.addEventListener('keydown', function(e) {
+                    switch(e.key) {
+                        case ' ': // Espaço - play/pause
+                            e.preventDefault();
+                            if (video.paused) video.play();
+                            else video.pause();
+                            break;
+                        case 'ArrowLeft': // Seta esquerda - retroceder 10s
+                            e.preventDefault();
+                            video.currentTime -= 10;
+                            break;
+                        case 'ArrowRight': // Seta direita - avançar 10s
+                            e.preventDefault();
+                            video.currentTime += 10;
+                            break;
+                        case 'ArrowUp': // Seta cima - aumentar volume
+                            e.preventDefault();
+                            video.volume = Math.min(1, video.volume + 0.1);
+                            break;
+                        case 'ArrowDown': // Seta baixo - diminuir volume
+                            e.preventDefault();
+                            video.volume = Math.max(0, video.volume - 0.1);
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag AUDIO - Reprodutor de Áudio</title>
+</head>
+<body>
+    <!-- 
+    TAG AUDIO: Reprodutor de áudio
+    
+    O que faz:
+    - Incorpora áudio na página web
+    - Player nativo do navegador
+    - Suporte a múltiplos formatos
+    
+    Atributos principais:
+    - src: caminho do arquivo de áudio
+    - controls: mostra controles de reprodução
+    - autoplay: reprodução automática (evitar)
+    - loop: repetir reprodução
+    - muted: iniciar sem som
+    - preload: como pré-carregar (none/metadata/auto)
+    -->
+    
+    <h1>Exemplos da Tag AUDIO</h1>
+    
+    <h2>Áudio Básico com Controles</h2>
+    <audio controls>
+        <source src="musica.mp3" type="audio/mpeg">
+        <source src="musica.ogg" type="audio/ogg">
+        Seu navegador não suporta a reprodução de áudio.
+    </audio>
+    
+    <h2>Áudio com Atributos</h2>
+    <audio controls loop preload="metadata">
+        <source src="efeito-sonoro.wav" type="audio/wav">
+        <source src="efeito-sonoro.mp3" type="audio/mpeg">
+        Áudio não suportado pelo navegador.
+    </audio>
+    
+    <h2>Playlist Simples</h2>
+    <div id="playlist">
+        <h3>🎵 Minha Playlist</h3>
+        <ol>
+            <li>
+                <strong>Música 1 - Artista A</strong>
+                <audio controls preload="none" style="width: 100%; margin: 5px 0;">
+                    <source src="musica1.mp3" type="audio/mpeg">
+                    <source src="musica1.ogg" type="audio/ogg">
+                </audio>
+            </li>
+            <li>
+                <strong>Música 2 - Artista B</strong>
+                <audio controls preload="none" style="width: 100%; margin: 5px 0;">
+                    <source src="musica2.mp3" type="audio/mpeg">
+                    <source src="musica2.ogg" type="audio/ogg">
+                </audio>
+            </li>
+            <li>
+                <strong>Música 3 - Artista C</strong>
+                <audio controls preload="none" style="width: 100%; margin: 5px 0;">
+                    <source src="musica3.mp3" type="audio/mpeg">
+                    <source src="musica3.ogg" type="audio/ogg">
+                </audio>
+            </li>
+        </ol>
+    </div>
+    
+    <h2>Player Personalizado</h2>
+    <div id="custom-player" style="background: #f0f0f0; padding: 20px; border-radius: 8px;">
+        <audio id="meu-audio" preload="metadata">
+            <source src="podcast.mp3" type="audio/mpeg">
+            <source src="podcast.ogg" type="audio/ogg">
+        </audio>
+        
+        <div style="text-align: center;">
+            <h3 id="track-title">Episódio #001 - Introdução ao HTML5</h3>
+            <div style="margin: 15px 0;">
+                <button id="play-pause" onclick="togglePlay()">▶️ Play</button>
+                <button onclick="setVolume(0.5)">🔉 50%</button>
+                <button onclick="setVolume(1.0)">🔊 100%</button>
+                <button onclick="muteToggle()">🔇 Mute</button>
+            </div>
+            <div>
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress" min="0" max="100" value="0" 
+                       style="width: 60%; margin: 0 10px;">
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Áudio para Acessibilidade</h2>
+    <figure>
+        <figcaption>
+            <strong>Descrição do Artigo:</strong> Versão em áudio do artigo 
+            "Introdução às Tags de Mídia em HTML5"
+        </figcaption>
+        <audio controls>
+            <source src="artigo-audio.mp3" type="audio/mpeg">
+            <track kind="captions" src="artigo-legendas.vtt" 
+                   srclang="pt-BR" label="Português">
+            Transcrição não disponível.
+        </audio>
+    </figure>
+    
+    <script>
+        const audio = document.getElementById('meu-audio');
+        const playPauseBtn = document.getElementById('play-pause');
+        const progressBar = document.getElementById('progress');
+        const currentTimeSpan = document.getElementById('current-time');
+        const durationSpan = document.getElementById('duration');
+        
+        let isMuted = false;
+        
+        // Atualizar duração quando metadados carregarem
+        audio.addEventListener('loadedmetadata', function() {
+            durationSpan.textContent = formatTime(audio.duration);
+        });
+        
+        // Atualizar progresso durante reprodução
+        audio.addEventListener('timeupdate', function() {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.value = progress;
+            currentTimeSpan.textContent = formatTime(audio.currentTime);
+        });
+        
+        // Play/Pause
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '⏸️ Pause';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '▶️ Play';
+            }
+        }
+        
+        // Controle de volume
+        function setVolume(volume) {
+            audio.volume = volume;
+        }
+        
+        // Mute/Unmute
+        function muteToggle() {
+            if (isMuted) {
+                audio.muted = false;
+                isMuted = false;
+            } else {
+                audio.muted = true;
+                isMuted = true;
+            }
+        }
+        
+        // Buscar posição
+        progressBar.addEventListener('input', function() {
+            const time = (progressBar.value / 100) * audio.duration;
+            audio.currentTime = time;
+        });
+        
+        // Formatar tempo
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+    </script>
+    
+</body>
+</html>

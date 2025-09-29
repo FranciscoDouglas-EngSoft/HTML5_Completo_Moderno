@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag IFRAME - Frame Inline</title>
+</head>
+<body>
+    <!-- 
+    TAG IFRAME: Frame inline
+    
+    O que faz:
+    - Incorpora outra página HTML dentro da atual
+    - Cria um contexto separado (sandbox)
+    - Útil para embedar conteúdo externo
+    
+    Atributos principais:
+    - src: URL da página a ser incorporada
+    - width, height: dimensões do frame
+    - frameborder: borda do frame (obsoleto, use CSS)
+    - sandbox: restrições de segurança
+    - allowfullscreen: permite tela cheia
+    - loading: carregamento lazy
+    -->
+    
+    <h1>Exemplos da Tag IFRAME</h1>
+    
+    <h2>YouTube Embed</h2>
+    <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allowfullscreen>
+    </iframe>
+    
+    <h2>Google Maps</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0!2d-46.6333!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+            width="600" height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+    </iframe>
+    
+    <h2>Página Local</h2>
+    <iframe src="pagina-exemplo.html" 
+            width="400" height="300"
+            title="Página de exemplo">
+        <p>Seu navegador não suporta iframes.</p>
+    </iframe>
+    
+    <h2>CodePen Embed</h2>
+    <iframe height="300" 
+            style="width: 100%;" 
+            scrolling="no" 
+            title="CSS Animation" 
+            src="https://codepen.io/exemplo/embed/preview" 
+            frameborder="no" 
+            allowfullscreen="true">
+    </iframe>
+    
+    <h2>Com Sandbox (Seguro)</h2>
+    <iframe src="conteudo-externo.html"
+            width="500" height="200"
+            sandbox="allow-scripts allow-same-origin"
+            title="Conteúdo com restrições">
+    </iframe>
+    
+</body>
+</html>

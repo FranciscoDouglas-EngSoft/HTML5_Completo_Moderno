@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag SOURCE - Múltiplas Fontes</title>
+</head>
+<body>
+    <!-- 
+    TAG SOURCE: Múltiplas fontes de mídia
+    
+    O que faz:
+    - Define múltiplas versões de um arquivo de mídia
+    - Permite fallback entre formatos
+    - Usado dentro de <video>, <audio>, <picture>
+    
+    Atributos principais:
+    - src: URL do arquivo
+    - type: tipo MIME do arquivo
+    - media: condições de mídia (para picture)
+    - sizes: tamanhos (para picture)
+    -->
+    
+    <h1>Exemplos da Tag SOURCE</h1>
+    
+    <h2>Vídeo com Múltiplas Fontes</h2>
+    <video controls width="600" poster="video-poster.jpg">
+        <!-- Formato moderno, menor tamanho -->
+        <source src="video.av1" type="video/av1">
+        <source src="video.webm" type="video/webm">
+        
+        <!-- Formatos mais compatíveis -->
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.ogv" type="video/ogg">
+        
+        <!-- Fallback para navegadores muito antigos -->
+        Seu navegador não suporta reprodução de vídeo. 
+        <a href="video.mp4">Baixar vídeo</a>
+    </video>
+    
+    <h2>Áudio com Múltiplas Fontes</h2>
+    <audio controls>
+        <!-- Formatos modernos e eficientes -->
+        <source src="musica.opus" type="audio/opus">
+        <source src="musica.aac" type="audio/aac">
+        
+        <!-- Formatos amplamente suportados -->
+        <source src="musica.mp3" type="audio/mpeg">
+        <source src="musica.ogg" type="audio/ogg">
+        <source src="musica.wav" type="audio/wav">
+        
+        Seu navegador não suporta reprodução de áudio.
+    </audio>
+    
+    <h2>Vídeo com Diferentes Qualidades</h2>
+    <h3>Escolha a Qualidade:</h3>
+    <div>
+        <button onclick="changeVideoQuality('hd')">HD (1080p)</button>
+        <button onclick="changeVideoQuality('sd')">SD (720p)</button>
+        <button onclick="changeVideoQuality('mobile')">Mobile (480p)</button>
+    </div>
+    
+    <video id="quality-video" controls width="600" style="margin-top: 15px;">
+        <source id="video-hd" src="video-1080p.mp4" type="video/mp4">
+        <source id="video-sd" src="video-720p.mp4" type="video/mp4">
+        <source id="video-mobile" src="video-480p.mp4" type="video/mp4">
+        Vídeo não suportado.
+    </video>
+    
+    <h2>Vídeo Responsivo com Picture</h2>
+    <picture>
+        <!-- Vídeo para desktop -->
+        <source media="(min-width: 1024px)" 
+                srcset="poster-desktop.jpg" 
+                type="image/jpeg">
+        
+        <!-- Vídeo para tablet -->
+        <source media="(min-width: 768px)" 
+                srcset="poster-tablet.jpg" 
+                type="image/jpeg">
+        
+        <!-- Vídeo para mobile -->
+        <source srcset="poster-mobile.jpg" 
+                type="image/jpeg">
+        
+        <img src="poster-mobile.jpg" alt="Poster do vídeo" 
+             style="width: 100%; max-width: 600px;">
+    </picture>
+    
+    <video controls style="width: 100%; max-width: 600px; margin-top: 10px;">
+        <!-- Versões para diferentes telas -->
+        <source src="video-desktop.mp4" 
+                type="video/mp4" 
+                media="(min-width: 1024px)">
+        <source src="video-tablet.mp4" 
+                type="video/mp4" 
+                media="(min-width: 768px)">
+        <source src="video-mobile.mp4" 
+                type="video/mp4">
+        
+        Vídeo não disponível.
+    </video>
+    
+    <h2>Streaming Adaptativo (HLS/DASH)</h2>
+    <video id="streaming-video" controls width="600">
+        <!-- HLS para Safari/iOS -->
+        <source src="video-playlist.m3u8" type="application/vnd.apple.mpegurl">
+        
+        <!-- DASH para outros navegadores -->
+        <source src="video-manifest.mpd" type="application/dash+xml">
+        
+        <!-- Fallback MP4 -->
+        <source src="video-fallback.mp4" type="video/mp4">
+        
+        Streaming não suportado.
+    </video>
+    
+    <script>
+        function changeVideoQuality(quality) {
+            const video = document.getElementById('quality-video');
+            const currentTime = video.currentTime;
+            const isPlaying = !video.paused;
+            
+            // Mapear qualidades para arquivos
+            const qualityMap = {
+                'hd': 'video-1080p.mp4',
+                'sd': 'video-720p.mp4', 
+                'mobile': 'video-480p.mp4'
+            };
+            
+            // Atualizar source
+            const sources = video.querySelectorAll('source');
+            sources.forEach(source => {
+                source.src = qualityMap[quality];
+            });
+            
+            // Recarregar e manter posição
+            video.load();
+            
+            video.addEventListener('loadedmetadata', function() {
+                video.currentTime = currentTime;
+                if (isPlaying) {
+                    video.play();
+                }
+            }, { once: true });
+        }
+        
+        // Detectar suporte a formatos
+        function checkVideoSupport() {
+            const video = document.createElement('video');
+            const formats = {
+                'MP4': video.canPlayType('video/mp4'),
+                'WebM': video.canPlayType('video/webm'),
+                'OGG': video.canPlayType('video/ogg'),
+                'AV1': video.canPlayType('video/av1')
+            };
+            
+            console.log('Formatos suportados:', formats);
+        }
+        
+        function checkAudioSupport() {
+            const audio = document.createElement('audio');
+            const formats = {
+                'MP3': audio.canPlayType('audio/mpeg'),
+                'OGG': audio.canPlayType('audio/ogg'),
+                'AAC': audio.canPlayType('audio/aac'),
+                'OPUS': audio.canPlayType('audio/opus')
+            };
+            
+            console.log('Formatos de áudio suportados:', formats);
+        }
+        
+        // Executar verificações
+        checkVideoSupport();
+        checkAudioSupport();
+    </script>
+    
+</body>
+</html>
