@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag DIV e SPAN - Containers Genéricos</title>
+    <style>
+        .container {
+            background-color: #eef;
+            padding: 15px;
+            border: 1px solid #99c;
+            margin-bottom: 20px;
+        }
+
+        .destaque {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+    TAG DIV: Container genérico de bloco
+
+    O que faz:
+    - Agrupa elementos em bloco
+    - Usado para estruturar seções da página
+    - Facilita aplicação de estilos e scripts
+
+    Características:
+    - Elemento de bloco
+    - Não possui semântica própria
+    - Pode conter qualquer outro elemento HTML
+
+    Quando usar:
+    - Criar áreas visuais
+    - Agrupar conteúdo para estilização
+    - Organizar layout da página
+    -->
+
+    <h1>Exemplo da Tag DIV</h1>
+
+    <div class="container">
+        <h2>Seção de Destaque</h2>
+        <p>Este conteúdo está dentro de uma <strong>DIV</strong> estilizada.</p>
+    </div>
+
+    <div>
+        <p>Outro bloco de conteúdo separado.</p>
+    </div>
+
+    <!-- 
+    TAG SPAN: Container genérico inline
+
+    O que faz:
+    - Agrupa conteúdo inline para aplicar estilos ou scripts
+    - Não altera o fluxo do texto
+
+    Características:
+    - Elemento inline
+    - Não possui semântica própria
+    - Ideal para destacar partes específicas de um texto
+
+    Quando usar:
+    - Aplicar estilo a palavras ou trechos
+    - Manipular conteúdo com JavaScript
+    -->
+
+    <h1>Exemplo da Tag SPAN</h1>
+
+    <p>Este texto contém uma <span class="destaque">palavra destacada</span> usando SPAN.</p>
+
+    <p>Você pode <span style="text-decoration: underline;">sublinhar</span> ou <span style="font-style: italic;">italicizar</span> partes do texto.</p>
+
+</body>
+</html>

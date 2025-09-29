@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag TEMPLATE + SLOT</title>
+</head>
+<body>
+  <!-- 
+    TEMPLATE:
+    - Conteúdo invisível até ser instanciado via JS.
+    - Ótimo para criar componentes reutilizáveis.
+
+    SLOT:
+    - Espaços reservados dentro de templates ou web components.
+  -->
+
+  <h1>Exemplo das Tags TEMPLATE + SLOT</h1>
+
+  <template id="card-template">
+    <div class="card">
+      <slot name="titulo"></slot>
+      <slot name="conteudo"></slot>
+    </div>
+  </template>
+
+  <!-- Este é um exemplo básico — em produção, JS popularia os slots dinamicamente -->
+</body>
+</html>

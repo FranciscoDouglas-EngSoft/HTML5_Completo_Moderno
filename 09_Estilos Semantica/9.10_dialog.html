@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag DIALOG - Caixa Modal</title>
+</head>
+<body>
+  <!-- 
+    DIALOG representa uma caixa de diálogo ou janela modal.
+
+    Pode ser:
+    - Aberta automaticamente com o atributo open
+    - Controlada por JavaScript
+  -->
+
+  <h1>Exemplo da Tag DIALOG</h1>
+
+  <button onclick="document.getElementById('meuDialogo').showModal()">Abrir Modal</button>
+
+  <dialog id="meuDialogo">
+    <h2>Bem-vindo!</h2>
+    <p>Esta é uma caixa de diálogo interativa.</p>
+    <button onclick="document.getElementById('meuDialogo').close()">Fechar</button>
+  </dialog>
+</body>
+</html>

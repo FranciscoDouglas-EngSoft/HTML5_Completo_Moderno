@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag STYLE - Estilo Interno</title>
+
+    <!-- 
+    TAG STYLE: Estilização interna
+    
+    O que faz:
+    - Permite definir regras CSS diretamente no documento HTML
+    - Aplica estilos visuais aos elementos da página
+    - Pode ser usada para alterar cores, fontes, tamanhos, margens, etc.
+    
+    Características:
+    - Deve ser colocada dentro da tag <head>
+    - Afeta todos os elementos que correspondem aos seletores definidos
+    - Ideal para estilos rápidos ou específicos de uma página
+    
+    Quando usar:
+    - Estilização rápida sem arquivo CSS externo
+    - Prototipagem ou testes locais
+    - Estilos específicos que não serão reutilizados
+    
+    Atenção:
+    - Para projetos maiores, prefira arquivos CSS externos
+    -->
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .destaque {
+            background-color: yellow;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exemplo da Tag STYLE</h1>
+
+    <p>Este parágrafo está estilizado com CSS interno.</p>
+
+    <p class="destaque">Este parágrafo tem destaque com fundo amarelo.</p>
+
+</body>
+</html>
